@@ -12,7 +12,7 @@
 <body class="body">
     <header>
         <nav class="header">
-            <h1 class="header__text_color">JustStreamIt</h1>
+            <h1 class="header__title">JustStreamIt</h1>
             <h2 class="header__text_color">Accueil</h2>
             <h2 class="header__text_color">Catégories</h2>
         </nav>
@@ -33,14 +33,36 @@
         </div>
     </section>
 
-    <div id="category_rated" class="category_list"></div>
-    <div id="category_history" class="category_list"></div>
-
-    <template id="category_top_rated">
+    <section id="all_category" class="all_category">
         <div>
-            <img src="" alt="top rated film image" id="category_top_rated__img", class="category_top_rated__img">
+            <h2>Film les mieux notés</h2>
+            <div id="carousel_rated">
+                <div id="category_rated" class="category_list"></div>
+            </div>
+        </div>
+
+        <div>
+            <h2>Film historique</h2>
+            <div id="category_history" class="category_list item"></div>
+        </div>
+
+        <div>
+            <h2>Film d'aventure</h2>
+            <div id="category_adventure" class="category_list"></div>
+        </div>
+
+        <div>
+            <h2>Film d'animation</h2>
+            <div id="category_anime" class="category_list"></div>
+        </div>
+    </section>
+
+    <template id="category_template">
+        <div>
+            <img src="" alt="top rated film image" id="category_template__img", class="category_template__img">
         </div>
     </template>
+
     <script src="js/main.js"></script>
 </body>
 </html>

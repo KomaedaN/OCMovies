@@ -22,19 +22,20 @@ function getMostRatedFilmData() {
         .catch((err) => console.log('Error'))
 }
 
-function getFilmsFromCategoryImg(category_url, category, first_page, second_page) {
+function getFilmsFromCategoryImg(category_url, category, first_page, second_page, id) {
     fetch(Url + category_url)
         .then(res => res.json())
         .then(data => {
             const next_page = data["next"]
             // get films data from first page 
             for (let i = first_page; i < 5; i++) {
+                let class_name = "category_template__display_" + i
                 let category_id = document.getElementById(category);
                 let template = document.importNode(category_id.content, true);
                 let img = template.getElementById(category + "__img")
 
                 img.src = data["results"][i]["image_url"]
-                document.getElementById("category_list").appendChild(template)
+                document.getElementById("category_" + id).appendChild(template)
             }
             fetch(next_page)
                 .then(res => res.json())
@@ -45,7 +46,7 @@ function getFilmsFromCategoryImg(category_url, category, first_page, second_page
                         let template = document.importNode(category_id.content, true);
                         let img = template.getElementById(category + "__img")
                         img.src = data["results"][i]["image_url"]
-                        document.getElementById("category_list").appendChild(template)
+                        document.getElementById("category_" + id).appendChild(template)
                     }
                 })          
         })
@@ -53,4 +54,10 @@ function getFilmsFromCategoryImg(category_url, category, first_page, second_page
 
 getMostRatedFilmData()
 //category top rated films
-getFilmsFromCategoryImg("?sort_by=-imdb_score", "category_top_rated", 1, 3)
+getFilmsFromCategoryImg("?sort_by=-imdb_score", "category_template", 1, 3, "rated")
+//category history films
+getFilmsFromCategoryImg("?sort_by=-imdb_score&genre=history", "category_template", 0, 2, "history")
+//category adventure films
+getFilmsFromCategoryImg("?sort_by=-imdb_score&genre=adventure", "category_template", 0, 2, "adventure")
+//category anime films
+getFilmsFromCategoryImg("?sort_by=-imdb_score&genre=animation", "category_template", 0, 2, "anime")

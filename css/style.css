@@ -1,26 +1,35 @@
 .body {
   margin: 0px;
-}
-
-.header {
-  background-color: #4A314D;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 10rem;
-  align-items: center;
-  justify-items: center;
-}
-.header__text_color {
+  background-color: rgb(40, 40, 40);
   color: white;
 }
 
+.header {
+  background-color: #AD2E24;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 7rem;
+  align-items: center;
+  justify-items: center;
+}
+.header__title {
+  justify-self: start;
+  padding-left: 2rem;
+}
+
+.best_film {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 .best_film__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   border-style: solid;
-  height: 350px;
+  border-color: aquamarine;
+  height: 353px;
   margin-top: 2rem;
   justify-items: center;
+  background-color: #C75146;
 }
 .best_film__information {
   text-align: center;
@@ -57,15 +66,21 @@
   object-fit: cover;
 }
 
+#all_category {
+  text-align: center;
+}
+
 .category_list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
+  padding-left: 9.5rem;
+  padding-right: 9.5rem;
 }
 
-.category_top_rated__img {
-  border-style: solid;
-  border-color: rebeccapurple;
+.category_template__img {
+  border-style: groove;
+  border-color: #EA8C55;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,52 +1,54 @@
 .best_film{
-    &__container{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        border-style: solid;
-        height: 350px;
-        margin-top: 2rem;
-        justify-items: center;
-    }
+    padding-left: 5rem;
+    padding-right: 5rem;
+        &__container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            border-style: solid;
+            border-color: aquamarine;
+            height: 353px;
+            margin-top: 2rem;
+            justify-items: center;
+            background-color: #C75146;
+        }
 
-    &__information{
-        text-align: center;
-    }
+        &__information{
+            text-align: center;
+        }
 
-    &__title{
-        padding-bottom: 1.5rem;
-    }
+        &__title{
+            padding-bottom: 1.5rem;
+        }
 
-    &__btn{
-        font-size: 15px;
-        width:130px;
-        height:40px;
-        border-width:1px;
-        color:#fff;
-        border-color:rgba(173, 71, 22, 1);
-        font-weight:bold;
-        border-top-left-radius:8px;
-        border-top-right-radius:8px;
-        border-bottom-left-radius:8px;
-        border-bottom-right-radius:8px;
-        box-shadow: 0px 10px 14px -7px rgba(255, 255, 255, 1);
-        text-shadow: 0px 1px 0px rgba(224, 62, 12, 1);
-        background:linear-gradient(rgba(255, 129, 110, 1), rgba(192, 85, 28, 1));
-    }
+        &__btn{
+            font-size: 15px;
+            width:130px;
+            height:40px;
+            border-width:1px;
+            color:#fff;
+            border-color:rgba(173, 71, 22, 1);
+            font-weight:bold;
+            border-top-left-radius:8px;
+            border-top-right-radius:8px;
+            border-bottom-left-radius:8px;
+            border-bottom-right-radius:8px;
+            box-shadow: 0px 10px 14px -7px rgba(255, 255, 255, 1);
+            text-shadow: 0px 1px 0px rgba(224, 62, 12, 1);
+            background:linear-gradient(rgba(255, 129, 110, 1), rgba(192, 85, 28, 1));
+        }
 
-    &__resume{
-        padding-top: 1.5rem;
-    }
+        &__resume{
+            padding-top: 1.5rem;
+        }
 
-    &__description{
-        word-break: break-word;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+        &__description{
+            word-break: break-word;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
 
-    &__img{
-        width: 240px;
-        object-fit: cover;
-    }
-
-    
+        &__img{
+            width: 240px;
+            object-fit: cover;
+        }
 }
