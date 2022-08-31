@@ -1,5 +1,9 @@
+.body {
+  margin: 0px;
+}
+
 .header {
-  background-color: gray;
+  background-color: #4A314D;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 10rem;
@@ -51,6 +55,17 @@
 .best_film__img {
   width: 240px;
   object-fit: cover;
+}
+
+.category_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  text-align: center;
+}
+
+.category_top_rated__img {
+  border-style: solid;
+  border-color: rebeccapurple;
 }
 
 /*# sourceMappingURL=style.css.map */

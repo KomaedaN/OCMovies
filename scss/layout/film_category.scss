@@ -1,0 +1,10 @@
+.category_list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.category_top_rated__img{
+    border-style: solid;
+    border-color: rebeccapurple;
+}

@@ -9,7 +9,7 @@
     <title>JustStreamIt</title>
 </head>
 
-<body>
+<body class="body">
     <header>
         <nav class="header">
             <h1 class="header__text_color">JustStreamIt</h1>
@@ -33,9 +33,14 @@
         </div>
     </section>
 
-    <section id="category">
+    <div id="category_rated" class="category_list"></div>
+    <div id="category_history" class="category_list"></div>
 
-    </section>
+    <template id="category_top_rated">
+        <div>
+            <img src="" alt="top rated film image" id="category_top_rated__img", class="category_top_rated__img">
+        </div>
+    </template>
     <script src="js/main.js"></script>
 </body>
 </html>
