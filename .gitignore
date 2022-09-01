@@ -16,4 +16,3 @@ db.sqlite3
 .pytest*
 
 node_modules/
-try.jpg

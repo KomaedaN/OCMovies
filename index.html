@@ -43,7 +43,7 @@
 
         <div>
             <h2>Film historique</h2>
-            <div id="category_history" class="category_list item"></div>
+            <div id="category_history" class="category_list"></div>
         </div>
 
         <div>
@@ -58,9 +58,12 @@
     </section>
 
     <template id="category_template">
-        <div>
-            <img src="" alt="top rated film image" id="category_template__img", class="category_template__img">
+        <div id="" style="display: none;">
+            <img src="" alt="film image" id="category_template__img_div">
+            <h2 id="category_template__title"></h2>
+            <p id="category_template__date"></p>
         </div>
+        <img src="" alt="top rated film image" id="category_template__img", class="category_template__img">
     </template>
 
     <script src="js/main.js"></script>
