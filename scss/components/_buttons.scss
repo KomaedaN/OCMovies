@@ -1,0 +1,43 @@
+@import "../utils/keyframes";
+
+button{
+    background-color: red;
+    border-radius: 0.3rem;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 4rem;
+}
+
+.best_film__btn{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    width:130px;
+    height:40px;
+    border-width:1px;
+    color:#fff;
+    border-color:#1B263B;
+    font-weight:bold;
+    border-radius: 2px;
+    box-shadow: 0px 10px 14px -7px rgba(40 36 36);
+    background-color: #1B263B;  
+    &:hover{
+        animation: card  200ms 100ms ease-in-out;
+        animation-fill-mode: forwards;
+
+    }
+}
+
+.category_template__btn{
+    border: none; 
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background-color: #1B263B;
+    &:hover{
+        transform: scale(1.2);
+    }
+}

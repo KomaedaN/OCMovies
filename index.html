@@ -34,36 +34,54 @@
     </section>
 
     <section id="all_category" class="all_category">
-        <div>
+        <div class="all_category__rated">
             <h2>Film les mieux notés</h2>
             <div id="carousel_rated">
                 <div id="category_rated" class="category_list"></div>
             </div>
         </div>
 
-        <div>
+        <div class="all_category__history">
             <h2>Film historique</h2>
             <div id="category_history" class="category_list"></div>
         </div>
 
-        <div>
+        <div class="all_category__adventure">
             <h2>Film d'aventure</h2>
             <div id="category_adventure" class="category_list"></div>
         </div>
 
         <div>
-            <h2>Film d'animation</h2>
+            <h2 class="all_category__anime">Film d'animation</h2>
             <div id="category_anime" class="category_list"></div>
         </div>
     </section>
 
     <template id="category_template">
-        <div id="" style="display: none;">
-            <img src="" alt="film image" id="category_template__img_div">
-            <h2 id="category_template__title"></h2>
-            <p id="category_template__date"></p>
+        <div id="category_template__display" style="display: none;" class="category_template__display">
+            <img src="" alt="film image" id="category_template__img_div" class="category_template__img_div">
+        <div class="category_template__test">
+            <div class="category_template__grid_title">
+                <h2 id="category_template__title" class="category_template__title"></h2>
+                <p id="category_template__description"></p>
+            </div>
+            <div class="category_template__grid_genres">
+                <p id="category_template__genres"></p>
+                <p id="category_template__date"></p>
+                <p id="category_template__directors"></p>
+                <p id="category_template__countries"></p>
+                <p id="category_template__rated"></p>
+                <p id="category_template__imdb"></p>
+                <p id="category_template__duration"></p>
+                <p id="category_template__reviews_from_critics"></p> 
+                <p id="category_template__actors"></p> 
+            </div>
         </div>
-        <img src="" alt="top rated film image" id="category_template__img", class="category_template__img">
+            <button id="btn_none_" onclick="displayInforamtionNone(this.id)">Fermer</button>
+        </div>
+        <button id="btn_display" onclick="displayInforamtion(this.id)" class="category_template__btn">
+            <img src="" alt="top rated film image" id="category_template__img" class="category_template__img" >
+        </button>
     </template>
 
     <script src="js/main.js"></script>

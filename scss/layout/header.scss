@@ -1,11 +1,14 @@
+@import "../utils/variable";
+
 .body{
     margin: 0px;
-    background-color: rgb(40 40 40);
+    background-color: $color-primary;
     color: white;
 }
 
 .header{
-    background-color: #AD2E24;
+    color: black;
+    background-color: $color-tertiaire;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 7rem;
