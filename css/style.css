@@ -115,12 +115,12 @@
   font-size: 1.2rem;
 }
 
-@keyframes card {
+@keyframes btn_play {
   from {
     transform: scale(1);
   }
   to {
-    transform: scale(2);
+    transform: scale(1.2);
   }
 }
 button {
@@ -146,9 +146,10 @@ button {
   border-radius: 2px;
   box-shadow: 0px 10px 14px -7px rgb(40, 36, 36);
   background-color: #1B263B;
+  cursor: pointer;
 }
 .best_film__btn:hover {
-  animation: card 200ms 100ms ease-in-out;
+  animation: btn_play 200ms ease-in-out;
   animation-fill-mode: forwards;
 }
 
@@ -159,9 +160,6 @@ button {
   margin: 0;
   cursor: pointer;
   background-color: #1B263B;
-}
-.category_template__btn:hover {
-  transform: scale(1.2);
 }
 
 /*# sourceMappingURL=style.css.map */
