@@ -1,13 +1,19 @@
 @import "../utils/keyframes";
 
-button{
-    background-color: red;
+.category_template__display button{
+    background-color: #d62828;
     border-radius: 0.3rem;
     padding-left: 20rem;
     padding-right: 20rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-top: 4rem;
+    color: $color-primary;
+    border-color: $color-primary;
+    font-weight:bold;
+    border-radius: 2px;
+    box-shadow: 0px 10px 14px -7px rgba(40 36 36);
+    cursor: pointer;
 }
 
 .best_film__btn{
@@ -37,4 +43,25 @@ button{
     margin: 0;
     cursor: pointer;
     background-color: #1B263B;
+    animation: none;
+}
+
+.nav button{
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    border: 1px solid;
+    transform: translateY(-50%);
+    background-color: $color-ligth;
+    cursor: pointer;
+}
+
+.nav{
+    &__previous{
+        left: -30px;
+    }
+    &__next{
+        right: -30px;
+    }
 }

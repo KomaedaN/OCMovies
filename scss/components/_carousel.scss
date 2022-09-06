@@ -1,0 +1,16 @@
+.carousel{
+    width: 1280px;
+    min-height: 200px;
+    position: relative;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    &__card{
+        width: 320px;
+        flex-shrink: 0;
+        height: 300px;
+        box-sizing: border-box;
+    }
+    &__container{
+        overflow: hidden;
+    }
+}

@@ -35,7 +35,7 @@ async function getFilmsFromCategory(category_url, first_number, seconde_number, 
     fetch(category_url)
         .then(res => res.json())
         .then(async data => { 
-            // get films data from first page 
+            // get films data from first page
             for (let i = first_number; i < seconde_number; i++) {
                 const current_film_id = data["results"][i]["id"]
                 const current_film_data = await getDataFromFilmId(current_film_id)//get all data from id 
@@ -45,6 +45,7 @@ async function getFilmsFromCategory(category_url, first_number, seconde_number, 
 
                 let information_div = document.createElement('div');
                 information_div.id = "film_" + current_film_id
+                information_div.classList.add("carousel__card")
                 document.getElementById("category_" + id).appendChild(information_div)
         
                 let category_id = document.getElementById("category_template");
@@ -91,15 +92,15 @@ async function getFilmsFromCategory(category_url, first_number, seconde_number, 
                 //assign all information 
                 image.src = image_data
                 title.textContent = current_film_data[1];
-                genres.textContent = "Genres: " + current_film_data[2];
-                date.textContent = "Date de sortie: " + current_film_data[3];
-                rated.textContent = "Rated: " + current_film_data[4];
-                imdb.textContent = "Score imdb: " + current_film_data[5];
-                directors.textContent = "Réalisateur: " + current_film_data[6];
-                actors.textContent = "Liste des acteurs: " + current_film_data[7];
-                duration.textContent = "Durée: " + current_film_data[8] + " minutes";
-                countries.textContent = "Pays d'origine: " + current_film_data[9];
-                reviews_from_critics.textContent = "Résultat au Box Office: " + current_film_data[10];
+                genres.textContent = "GENRES: " + current_film_data[2];
+                date.textContent = "DATE DE SORTIE: " + current_film_data[3];
+                rated.textContent = "RATED: " + current_film_data[4];
+                imdb.textContent = "SCORE IMDB: " + current_film_data[5];
+                directors.textContent = "REALISATEUR: " + current_film_data[6];
+                actors.textContent = "LISTE DES ACTEURS: " + current_film_data[7];
+                duration.textContent = "DUREE: " + current_film_data[8] + " minutes";
+                countries.textContent = "PAYS D'ORIGINE: " + current_film_data[9];
+                reviews_from_critics.textContent = "RESULTAT AU BOX OFFICE: " + current_film_data[10];
                 description.textContent = current_film_data[11];
 
                 document.getElementById("btn_none_" + current_film_id).classList.add(current_film_id)
@@ -130,13 +131,29 @@ async function getDataFromFilmId(id) {
 }
 
 
-function displayInforamtion(id) {
+async function displayInforamtion(id) {
     document.getElementById("display_" + id).style.display = "";
 }
 
-function displayInforamtionNone(id) {
+async function displayInforamtionNone(id) {
     film_id = document.getElementById(id).className;
     document.getElementById("display_" + film_id).style.display = "none";
+}
+
+
+async function displayItems(category, carousel_category, carousel_value) {
+    const carousel_width = document.getElementById(carousel_category).offsetWidth;
+    const category_container = document.getElementById(category)
+    const value = category_container.style.transform
+    const value_nbr = value.replace(/[^\d.]/g, '');
+    if (carousel_value == 'previous') {
+        const transform_value =  (-carousel_width) + (+value_nbr)
+        category_container.style.transform = `translateX(-${transform_value}px)`;
+    }
+    else if (carousel_value == 'next') {
+        const transform_value = (+carousel_width) + (+value_nbr)
+        category_container.style.transform = `translateX(-${transform_value}px)`;
+    }
 }
 
 getMostRatedFilmData("?sort_by=-imdb_score")
@@ -153,3 +170,14 @@ getSecondPageId("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=
 getFilmsFromCategory("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=animation", 0, 5, "anime")
 getSecondPageId("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=animation", 0, 2, "anime")
 
+/*async function createButtonLeftRight(id) {
+    const create_btn_l = document.createElement('img')
+    const create_btn_r = document.createElement('img')
+    create_btn_l.id = "l_" + id 
+    create_btn_r.id = "r_" + id 
+    create_btn_l.src = "btn.jpg"
+    create_btn_r.src = "btn.jpg"
+    document.getElementById("category_" + id).appendChild(create_btn_l)
+    document.getElementById("category_" + id).appendChild(create_btn_r)
+}
+*/

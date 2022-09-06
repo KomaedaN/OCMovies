@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./css/style.css"/>
     <title>JustStreamIt</title>
 </head>
@@ -13,7 +14,7 @@
     <header>
         <nav class="header">
             <h1 class="header__title">JustStreamIt</h1>
-            <h2 class="header__text_color">Accueil</h2>
+            <h2 class="header__text_home">Accueil</h2>
             <h2 class="header__text_color">Catégories</h2>
         </nav>
     </header>
@@ -36,8 +37,19 @@
     <section id="all_category" class="all_category">
         <div class="all_category__rated">
             <h2>Film les mieux notés</h2>
-            <div id="carousel_rated">
-                <div id="category_rated" class="category_list"></div>
+            <div id="carousel_rated" class="carousel">
+                <div class="carousel__container">
+                    <div id="category_rated" class="category_list" style="transform: translateX(0px);"></div>
+                </div>
+
+                <div class="nav">
+                    <button id="previous_rated" class="nav__previous" onclick="displayItems('category_rated', 'carousel_rated', 'previous')">
+                        <img src="./left.png" alt="left arrow">
+                    </button>
+                    <button id="next_rated" class="nav__next" onclick="displayItems('category_rated', 'carousel_rated', 'next')">
+                        <img src="./right.png" alt="right arrow">
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -60,24 +72,24 @@
     <template id="category_template">
         <div id="category_template__display" style="display: none;" class="category_template__display">
             <img src="" alt="film image" id="category_template__img_div" class="category_template__img_div">
-        <div class="category_template__test">
-            <div class="category_template__grid_title">
-                <h2 id="category_template__title" class="category_template__title"></h2>
-                <p id="category_template__description"></p>
+            <div class="category_template__information">
+                <div class="category_template__grid_title">
+                    <h2 id="category_template__title" class="category_template__title"></h2>
+                    <p id="category_template__description"></p>
+                </div>
+                <div class="category_template__grid_genres">
+                    <p id="category_template__genres"></p>
+                    <p id="category_template__date"></p>
+                    <p id="category_template__directors"></p>
+                    <p id="category_template__countries"></p>
+                    <p id="category_template__rated"></p>
+                    <p id="category_template__imdb"></p>
+                    <p id="category_template__duration"></p>
+                    <p id="category_template__reviews_from_critics"></p> 
+                    <p id="category_template__actors"></p> 
+                </div>
             </div>
-            <div class="category_template__grid_genres">
-                <p id="category_template__genres"></p>
-                <p id="category_template__date"></p>
-                <p id="category_template__directors"></p>
-                <p id="category_template__countries"></p>
-                <p id="category_template__rated"></p>
-                <p id="category_template__imdb"></p>
-                <p id="category_template__duration"></p>
-                <p id="category_template__reviews_from_critics"></p> 
-                <p id="category_template__actors"></p> 
-            </div>
-        </div>
-            <button id="btn_none_" onclick="displayInforamtionNone(this.id)">Fermer</button>
+            <button id="btn_none_" onclick="displayInforamtionNone(this.id)">Retour</button>
         </div>
         <button id="btn_display" onclick="displayInforamtion(this.id)" class="category_template__btn">
             <img src="" alt="top rated film image" id="category_template__img" class="category_template__img" >
