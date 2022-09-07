@@ -128,12 +128,12 @@ async function insertFilmData(current_film_data, current_film_id) {
 }
 
 async function displayInforamtion(id) {
-    document.getElementById("display_" + id).style.display = "";
+    document.getElementById("display_" + id).classList.add("category_template__display_true");
 }
 
 async function displayInforamtionNone(id) {
     film_id = document.getElementById(id).className;
-    document.getElementById("display_" + film_id).style.display = "none";
+    document.getElementById("display_" + film_id).classList.remove("category_template__display_true");;
 }
 
 
