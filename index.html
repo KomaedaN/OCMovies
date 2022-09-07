@@ -35,7 +35,7 @@
     </section>
 
     <section id="all_category" class="all_category">
-        <div class="all_category__rated">
+        <div class="all_category__film">
             <h2>Film les mieux notés</h2>
             <div id="carousel_rated" class="carousel">
                 <div class="carousel__container">
@@ -53,23 +53,70 @@
             </div>
         </div>
 
-        <div class="all_category__history">
-            <h2>Film historique</h2>
-            <div id="category_history" class="category_list"></div>
+        <div class="all_category__film">
+            <h2>Film les mieux notés</h2>
+            <div id="carousel_history" class="carousel">
+                <div class="carousel__container">
+                    <div id="category_history" class="category_list" style="transform: translateX(0px);"></div>
+                </div>
+
+                <div class="nav">
+                    <button id="previous_rated" class="nav__previous" onclick="displayItems('category_history', 'carousel_history', 'previous')">
+                        <img src="./left.png" alt="left arrow">
+                    </button>
+                    <button id="next_rated" class="nav__next" onclick="displayItems('category_history', 'carousel_history', 'next')">
+                        <img src="./right.png" alt="right arrow">
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="all_category__adventure">
-            <h2>Film d'aventure</h2>
-            <div id="category_adventure" class="category_list"></div>
+        <div class="all_category__film">
+            <h2>Film les mieux notés</h2>
+            <div id="carousel_adventure" class="carousel">
+                <div class="carousel__container">
+                    <div id="category_adventure" class="category_list" style="transform: translateX(0px);"></div>
+                </div>
+
+                <div class="nav">
+                    <button id="previous_rated" class="nav__previous" onclick="displayItems('category_adventure', 'carousel_adventure', 'previous')">
+                        <img src="./left.png" alt="left arrow">
+                    </button>
+                    <button id="next_rated" class="nav__next" onclick="displayItems('category_adventure', 'carousel_adventure', 'next')">
+                        <img src="./right.png" alt="right arrow">
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <h2 class="all_category__anime">Film d'animation</h2>
-            <div id="category_anime" class="category_list"></div>
+        <div class="all_category__film">
+            <h2>Film les mieux notés</h2>
+            <div id="carousel_anime" class="carousel">
+                <div class="carousel__container">
+                    <div id="category_anime" class="category_list" style="transform: translateX(0px);"></div>
+                </div>
+
+                <div class="nav">
+                    <button id="previous_rated" class="nav__previous" onclick="displayItems('category_anime', 'carousel_anime', 'previous')">
+                        <img src="./left.png" alt="left arrow">
+                    </button>
+                    <button id="next_rated" class="nav__next" onclick="displayItems('category_anime', 'carousel_anime', 'next')">
+                        <img src="./right.png" alt="right arrow">
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
+    <section id="display_film_data"></section>
+
     <template id="category_template">
+        <button id="btn_display" onclick="displayInforamtion(this.id)" class="category_template__btn">
+            <img src="" alt="top rated film image" id="category_template__img" class="category_template__img" >
+        </button>
+    </template>
+
+    <template id="all_data">
         <div id="category_template__display" style="display: none;" class="category_template__display">
             <img src="" alt="film image" id="category_template__img_div" class="category_template__img_div">
             <div class="category_template__information">
@@ -91,11 +138,7 @@
             </div>
             <button id="btn_none_" onclick="displayInforamtionNone(this.id)">Retour</button>
         </div>
-        <button id="btn_display" onclick="displayInforamtion(this.id)" class="category_template__btn">
-            <img src="" alt="top rated film image" id="category_template__img" class="category_template__img" >
-        </button>
     </template>
-
     <script src="js/main.js"></script>
 </body>
 </html>
