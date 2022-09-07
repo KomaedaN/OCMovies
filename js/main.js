@@ -137,18 +137,31 @@ async function displayInforamtionNone(id) {
 }
 
 
-async function displayItems(category, carousel_category, carousel_value) {
-    const carousel_width = document.getElementById(carousel_category).offsetWidth;
-    const category_container = document.getElementById(category)
-    const value = category_container.style.transform
-    const value_nbr = value.replace(/[^\d.]/g, '');
+let index = 0;
+
+async function displayItems(category, carousel_value) {
+    const carousel_width = document.getElementById("carousel_" + category).offsetWidth;
+    const category_container = document.getElementById("category_" + category);
     if (carousel_value == 'previous') {
-        const transform_value =  (-carousel_width) + (+value_nbr)
+        index--;
+        const transform_value =  carousel_width * index;
         category_container.style.transform = `translateX(-${transform_value}px)`;
+        verifyTranslateX(transform_value, carousel_width, category_container, category)
     }
     else if (carousel_value == 'next') {
-        const transform_value = (+carousel_width) + (+value_nbr)
+        index++;
+        const transform_value =  carousel_width * index;
         category_container.style.transform = `translateX(-${transform_value}px)`;
+        verifyTranslateX(transform_value, carousel_width, category_container, category)
+    }
+    
+}
+
+async function verifyTranslateX(transform_value, carousel_width, category_container, category) {
+    console.log(category_container.offsetWidth)
+    const card_width = category_container.offsetWidth;
+    if (card_width - transform_value < carousel_width) {
+        document.getElementById("previous_" + category).classList.add('show');
     }
 }
 

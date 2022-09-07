@@ -60,10 +60,16 @@
 .nav{
     &__previous{
         left: -30px;
+        display: none;
     }
     &__next{
         right: -30px;
+        display: block;
     }
+}
+
+.nav__previous.show{
+    display: block;
 }
 
 @include large{

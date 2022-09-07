@@ -88,7 +88,7 @@
 }
 
 .category_list {
-  display: flex;
+  display: inline-flex;
 }
 
 .category_template__img {
@@ -230,9 +230,15 @@
 
 .nav__previous {
   left: -30px;
+  display: none;
 }
 .nav__next {
   right: -30px;
+  display: block;
+}
+
+.nav__previous.show {
+  display: block;
 }
 
 @media screen and (max-width: 1400px) {
