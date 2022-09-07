@@ -1,9 +1,13 @@
+@import "../utils/variable"; 
+@import "../utils/mixins";
+
 .carousel{
     width: 1280px;
     min-height: 200px;
     position: relative;
     margin-left: 2rem;
     margin-right: 2rem;
+    margin-top: 2rem;
     &__card{
         width: 320px;
         flex-shrink: 0;
@@ -12,5 +16,42 @@
     }
     &__container{
         overflow: hidden;
+    }
+}
+
+//breakpoint
+@include large {
+    .carousel{
+        width: 1020px;
+        &__card{
+            width: 255px;
+        }
+    }
+}
+
+@include desktop {
+    .carousel{
+        width: 762px;
+        &__card{
+            width: 254px;
+        }
+    }
+}
+
+@include tablet {
+    .carousel{
+        width: 500px;
+        &__card{
+            width: 250px;
+        }
+    }
+}
+
+@include extra_small {
+    .carousel{
+        width: 300px;
+        &__card{
+            width: 300px;
+        }
     }
 }

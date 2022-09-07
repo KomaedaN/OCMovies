@@ -1,4 +1,5 @@
 @import "../utils/variable";
+@import "../utils/mixins";
 
 #all_category{
     text-align: center;
@@ -6,19 +7,14 @@
 }
 
 .all_category{
-    &__rated{
+    &__film{
         margin-top: 4rem;
-    }
-    &__history{
-        margin-top: 4rem;
-    }
-    &__adventure{
-        margin-top: 4rem;
-    }
-    &__anime{
-        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
+
 .category_list{
     display: flex;
 }
@@ -35,6 +31,7 @@
         left: 0px;
         width: 100%;
         height: 100%;
+        text-align: center;
     }
     &__information{
         display: grid;
@@ -59,5 +56,45 @@
     }
     &__description{
         font-size: 1.2rem;
+    }
+}
+
+@include tablet {
+    .category_template{
+        &__img_div{
+            margin-top: 0;
+        }
+        &__grid_title{
+            padding-right: 0;
+            padding-left: 1rem;
+            padding-top: 0;
+        }
+        &__title{
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        &__information p {
+            font-size: 0.9rem;
+        }
+    }
+    #category_template__description{
+        margin-bottom: 0;
+    }
+    #category_template__actors{
+        margin-bottom: 0;
+    }
+}
+
+@include large {
+    .category_template{
+        &__img_div{
+            margin-top: 1rem;
+        }
+    }
+    #category_template__description{
+        margin-bottom: 2rem;
+    }
+    #category_template__actors{
+        margin-bottom: 2rem;
     }
 }

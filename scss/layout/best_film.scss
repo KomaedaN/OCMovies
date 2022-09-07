@@ -1,4 +1,5 @@
 @import "../utils/variable";
+@import "../utils/mixins";
 
 .best_film{
     padding-left: 5rem;
@@ -36,4 +37,33 @@
             width: 240px;
             object-fit: cover;
         }
+}
+
+@include desktop {
+    .best_film{
+        &__container{
+            justify-items: end;
+        }
+    }
+}
+
+@include tablet {
+    .best_film{
+        padding-left: 2rem;
+        padding-right: 2rem;
+        &__container{
+            justify-items: end;
+        }
+    }
+}
+
+@include extra_small {
+    .best_film{
+        &__container{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }

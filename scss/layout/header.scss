@@ -1,9 +1,11 @@
 @import "../utils/variable";
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 .body{
     margin: 0px;
     background-color: $color-primary;
-    color: white;
+    color: $color-ligth;
+    font-family: 'Abel', sans-serif;
 }
 
 .header{

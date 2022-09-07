@@ -37,73 +37,25 @@ async function getFilmsFromCategory(category_url, first_number, seconde_number, 
         .then(async data => { 
             // get films data from first page
             for (let i = first_number; i < seconde_number; i++) {
-                const current_film_id = data["results"][i]["id"]
-                const current_film_data = await getDataFromFilmId(current_film_id)//get all data from id 
+                const current_film_id = data["results"][i]["id"];
+                const current_film_data = await getDataFromFilmId(current_film_id);//get all data from id 
                             
                 //assign data
-                let image_data = current_film_data[0]
+                let image_data = current_film_data[0];
 
                 let information_div = document.createElement('div');
-                information_div.id = "film_" + current_film_id
-                information_div.classList.add("carousel__card")
-                document.getElementById("category_" + id).appendChild(information_div)
+                information_div.id = "film_" + current_film_id;
+                information_div.classList.add("carousel__card");
+                document.getElementById("category_" + id).appendChild(information_div);
         
                 let category_id = document.getElementById("category_template");
                 let template = document.importNode(category_id.content, true);
                 let img = template.getElementById("category_template__img");
                 img.src = image_data    
-                document.getElementById("film_" + current_film_id).appendChild(template)
+                document.getElementById("film_" + current_film_id).appendChild(template);
 
-                //get Element Id 
-                let display_div = document.getElementById("category_template__display");
-                let btn = document.getElementById("btn_display");
-                let btn_display_none = document.getElementById("btn_none_");
-
-                let title = document.getElementById("category_template__title");
-                let genres = document.getElementById("category_template__genres");
-                let image = document.getElementById("category_template__img_div");
-                let date = document.getElementById("category_template__date");
-                let rated = document.getElementById("category_template__rated");
-                let imdb = document.getElementById("category_template__imdb");
-                let directors = document.getElementById("category_template__directors");
-                let actors = document.getElementById("category_template__actors");
-                let duration = document.getElementById("category_template__duration");
-                let countries = document.getElementById("category_template__countries");
-                let reviews_from_critics = document.getElementById("category_template__reviews_from_critics");
-                let description = document.getElementById("category_template__description");
-
-
-                title.id = "title_" + current_film_id;
-                genres.id = "genres_" + current_film_id;
-                image.id = "image_" + current_film_id;
-                date.id = "date_" + current_film_id; 
-                rated.id = "rated_" + current_film_id;
-                imdb.id = "imdb_" + current_film_id;
-                directors.id = "directors_" + current_film_id;
-                actors.id = "actors_" + current_film_id;
-                duration.id = "duration" + current_film_id;
-                countries.id = "countries" + current_film_id;
-                reviews_from_critics.id = "reviews_from_critics_" + current_film_id;
-                description.id = "description_" + current_film_id;
-
-                display_div.id = "display_" + current_film_id;
-                btn.id = current_film_id;
-                btn_display_none.id = "btn_none_" + current_film_id
-                //assign all information 
-                image.src = image_data
-                title.textContent = current_film_data[1];
-                genres.textContent = "GENRES: " + current_film_data[2];
-                date.textContent = "DATE DE SORTIE: " + current_film_data[3];
-                rated.textContent = "RATED: " + current_film_data[4];
-                imdb.textContent = "SCORE IMDB: " + current_film_data[5];
-                directors.textContent = "REALISATEUR: " + current_film_data[6];
-                actors.textContent = "LISTE DES ACTEURS: " + current_film_data[7];
-                duration.textContent = "DUREE: " + current_film_data[8] + " minutes";
-                countries.textContent = "PAYS D'ORIGINE: " + current_film_data[9];
-                reviews_from_critics.textContent = "RESULTAT AU BOX OFFICE: " + current_film_data[10];
-                description.textContent = current_film_data[11];
-
-                document.getElementById("btn_none_" + current_film_id).classList.add(current_film_id)
+                insertFilmData(current_film_data, current_film_id);
+                
                 }
     })
 }
@@ -130,6 +82,50 @@ async function getDataFromFilmId(id) {
         .catch((err) => console.log(err))
 }
 
+
+async function insertFilmData(current_film_data, current_film_id) {
+    const information_template = document.getElementById("all_data")
+    const div_template = document.importNode(information_template.content, true);
+    document.getElementById("display_film_data").appendChild(div_template);
+
+    let display_div = document.getElementById("category_template__display");
+    let btn = document.getElementById("btn_display");
+    let btn_display_none = document.getElementById("btn_none_");
+    //attribut current film id 
+    display_div.id = "display_" + current_film_id;
+    btn.id = current_film_id;
+    btn_display_none.id = "btn_none_" + current_film_id
+
+    document.getElementById("btn_none_" + current_film_id).classList.add(current_film_id)
+
+    let title = document.getElementById("display_" + current_film_id).querySelector("#category_template__title");
+    let genres = document.getElementById("display_" + current_film_id).querySelector("#category_template__genres");
+    let image = document.getElementById("display_" + current_film_id).querySelector("#category_template__img_div");
+    let date = document.getElementById("display_" + current_film_id).querySelector("#category_template__date");
+    let rated = document.getElementById("display_" + current_film_id).querySelector("#category_template__rated");
+    let imdb = document.getElementById("display_" + current_film_id).querySelector("#category_template__imdb");
+    let directors = document.getElementById("display_" + current_film_id).querySelector("#category_template__directors");
+    let actors = document.getElementById("display_" + current_film_id).querySelector("#category_template__actors");
+    let duration = document.getElementById("display_" + current_film_id).querySelector("#category_template__duration");
+    let countries = document.getElementById("display_" + current_film_id).querySelector("#category_template__countries");
+    let reviews_from_critics = document.getElementById("display_" + current_film_id).querySelector("#category_template__reviews_from_critics");
+    let description = document.getElementById("display_" + current_film_id).querySelector("#category_template__description");
+
+    
+    //assign all information 
+    image.src = current_film_data[0]
+    title.textContent = current_film_data[1];
+    genres.textContent = "GENRES: " + current_film_data[2];
+    date.textContent = "DATE DE SORTIE: " + current_film_data[3];
+    rated.textContent = "RATED: " + current_film_data[4];
+    imdb.textContent = "SCORE IMDB: " + current_film_data[5];
+    directors.textContent = "REALISATEUR: " + current_film_data[6];
+    actors.textContent = "LISTE DES ACTEURS: " + current_film_data[7];
+    duration.textContent = "DUREE: " + current_film_data[8] + " minutes";
+    countries.textContent = "PAYS D'ORIGINE: " + current_film_data[9];
+    reviews_from_critics.textContent = "RESULTAT AU BOX OFFICE: " + current_film_data[10];
+    description.textContent = current_film_data[11];
+}
 
 async function displayInforamtion(id) {
     document.getElementById("display_" + id).style.display = "";

@@ -65,3 +65,11 @@
         right: -30px;
     }
 }
+
+@include large{
+    .category_template__display button{
+        margin-top: 0;
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+}

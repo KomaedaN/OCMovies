@@ -1,0 +1,25 @@
+@import "../utils/variable";
+
+//_Breakpoint mixin
+@mixin extra_small {
+    @media screen and (max-width: map-get($breakpoints, extra_small)){
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+@mixin desktop {
+    @media screen and (max-width: map-get($breakpoints, desktop)){
+        @content;
+    }
+}
+
+@mixin large {
+    @media screen and (max-width: map-get($breakpoints, large)){
+        @content;
+    }
+}
