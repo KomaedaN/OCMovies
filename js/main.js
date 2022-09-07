@@ -147,21 +147,25 @@ async function displayItems(category, carousel_value) {
         const transform_value =  carousel_width * index;
         category_container.style.transform = `translateX(-${transform_value}px)`;
         verifyTranslateX(transform_value, carousel_width, category_container, category)
+        if(index == 0) {
+            document.getElementById("previous_" + category).classList.remove('show');
+        }
     }
     else if (carousel_value == 'next') {
         index++;
         const transform_value =  carousel_width * index;
         category_container.style.transform = `translateX(-${transform_value}px)`;
-        verifyTranslateX(transform_value, carousel_width, category_container, category)
+        verifyTranslateX(transform_value, carousel_width, category_container, category);
+        document.getElementById("previous_" + category).classList.add('show');
     }
     
 }
 
 async function verifyTranslateX(transform_value, carousel_width, category_container, category) {
-    console.log(category_container.offsetWidth)
+    document.getElementById("next_" + category).classList.remove('hide');
     const card_width = category_container.offsetWidth;
     if (card_width - transform_value < carousel_width) {
-        document.getElementById("previous_" + category).classList.add('show');
+        document.getElementById("next_" + category).classList.add('hide');
     }
 }
 

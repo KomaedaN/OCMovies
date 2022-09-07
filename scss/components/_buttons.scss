@@ -72,6 +72,18 @@
     display: block;
 }
 
+.nav__next.show{
+    display: block;
+}
+
+.nav__previous.hide{
+    display: none;
+}
+
+.nav__next.hide{
+    display: none;
+}
+
 @include large{
     .category_template__display button{
         margin-top: 0;
