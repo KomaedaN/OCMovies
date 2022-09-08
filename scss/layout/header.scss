@@ -1,5 +1,29 @@
 @import "../utils/variable";
+@import "../utils/keyframes";
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.loader {
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: linear-gradient(0deg, $color-primary 17%, $color-tertiaire 50%, $color-secondary 94%);
+    line-height: 100%;
+    animation: loader 2.5s ease-in-out 2s forwards;
+    pointer-events: none;
+        &__text{
+            font-size: 4rem;
+            animation: text_anime 1s infinite;
+            animation-direction: alternate;
+            display: flex;
+            justify-content: center;
+            margin-top: 25rem;
+            color: black;
+        }
+  }
 
 .body{
     margin: 0px;

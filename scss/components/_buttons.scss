@@ -44,6 +44,10 @@
     cursor: pointer;
     background-color: #1B263B;
     animation: none;
+    &:hover{
+        animation: btn_card 200ms ease-in-out;
+        animation-fill-mode: forwards;
+    }
 }
 
 .nav button{

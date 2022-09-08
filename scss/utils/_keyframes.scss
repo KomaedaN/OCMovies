@@ -3,7 +3,36 @@
         transform: scale(1);
     }
     to{
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 
+@keyframes btn_card {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.05);
+    }
+}
+
+@keyframes loader {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+@keyframes text_anime{
+    0%{
+        transform: scaleY(1);
+    }
+    100%{
+        transform: scaleY(1.3);
+    }
+}
