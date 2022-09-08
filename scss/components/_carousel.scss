@@ -19,6 +19,10 @@
     }
 }
 
+#previous_history{
+    margin: 0px;   
+}
+
 //breakpoint
 @include large {
     .carousel{

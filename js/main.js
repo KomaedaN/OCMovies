@@ -136,29 +136,87 @@ async function displayInforamtionNone(id) {
     document.getElementById("display_" + film_id).classList.remove("category_template__display_true");;
 }
 
+let rated_index = 0;
+let history_index = 0;
+let adventure_index = 0;
+let anime_index = 0;
 
-let index = 0;
 
 async function displayItems(category, carousel_value) {
     const carousel_width = document.getElementById("carousel_" + category).offsetWidth;
     const category_container = document.getElementById("category_" + category);
-    if (carousel_value == 'previous') {
-        index--;
-        const transform_value =  carousel_width * index;
-        category_container.style.transform = `translateX(-${transform_value}px)`;
-        verifyTranslateX(transform_value, carousel_width, category_container, category)
-        if(index == 0) {
-            document.getElementById("previous_" + category).classList.remove('show');
+    if (category == "rated") {
+        if (carousel_value == 'previous') {
+            rated_index--;
+            const transform_value =  carousel_width * rated_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category)
+            if(rated_index == 0) {
+                document.getElementById("previous_" + category).classList.remove('show');
+            }
+        }
+        else if (carousel_value == 'next') {
+            rated_index++;
+            const transform_value =  carousel_width * rated_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category);
+            document.getElementById("previous_" + category).classList.add('show');
         }
     }
-    else if (carousel_value == 'next') {
-        index++;
-        const transform_value =  carousel_width * index;
-        category_container.style.transform = `translateX(-${transform_value}px)`;
-        verifyTranslateX(transform_value, carousel_width, category_container, category);
-        document.getElementById("previous_" + category).classList.add('show');
+    else if (category == "history") {
+        if (carousel_value == 'previous') {
+            history_index--;
+            const transform_value =  carousel_width * history_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category)
+            if(history_index == 0) {
+                document.getElementById("previous_" + category).classList.remove('show');
+            }
+        }
+        else if (carousel_value == 'next') {
+            history_index++;
+            const transform_value =  carousel_width * history_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category);
+            document.getElementById("previous_" + category).classList.add('show');
+        }
     }
-    
+    else if (category == "adventure") {
+        if (carousel_value == 'previous') {
+            adventure_index--;
+            const transform_value =  carousel_width * adventure_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category)
+            if(adventure_index == 0) {
+                document.getElementById("previous_" + category).classList.remove('show');
+            }
+        }
+        else if (carousel_value == 'next') {
+            adventure_index++;
+            const transform_value =  carousel_width * adventure_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category);
+            document.getElementById("previous_" + category).classList.add('show');
+        }
+    }
+    else if (category == "anime") {
+        if (carousel_value == 'previous') {
+            anime_index--;
+            const transform_value =  carousel_width * anime_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category)
+            if(anime_index == 0) {
+                document.getElementById("previous_" + category).classList.remove('show');
+            }
+        }
+        else if (carousel_value == 'next') {
+            anime_index++;
+            const transform_value =  carousel_width * anime_index;
+            category_container.style.transform = `translateX(-${transform_value}px)`;
+            verifyTranslateX(transform_value, carousel_width, category_container, category);
+            document.getElementById("previous_" + category).classList.add('show');
+        }
+    }
 }
 
 async function verifyTranslateX(transform_value, carousel_width, category_container, category) {
@@ -171,26 +229,15 @@ async function verifyTranslateX(transform_value, carousel_width, category_contai
 
 getMostRatedFilmData("?sort_by=-imdb_score")
 //category top rated films
-getFilmsFromCategory("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score", 1, 5, "rated")
-getSecondPageId("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score", 0, 3, "rated")
+getFilmsFromCategory(Url + "?sort_by=-imdb_score", 1, 5, "rated")
+getSecondPageId(Url + "?sort_by=-imdb_score", 0, 3, "rated")
 //category history films
-getFilmsFromCategory("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=history", 0, 5, "history")
-getSecondPageId("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=history", 0, 2, "history")
+getFilmsFromCategory(Url + "?sort_by=-imdb_score&genre=history", 0, 5, "history")
+getSecondPageId(Url + "?sort_by=-imdb_score&genre=history", 0, 2, "history")
 //category adventure films
-getFilmsFromCategory("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=adventure", 0, 5, "adventure")
-getSecondPageId("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=adventure", 0, 2, "adventure")
+getFilmsFromCategory(Url + "?sort_by=-imdb_score&genre=adventure", 0, 5, "adventure")
+getSecondPageId(Url + "?sort_by=-imdb_score&genre=adventure", 0, 2, "adventure")
 //category anime films
-getFilmsFromCategory("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=animation", 0, 5, "anime")
-getSecondPageId("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=animation", 0, 2, "anime")
+getFilmsFromCategory(Url + "?sort_by=-imdb_score&genre=animation", 0, 5, "anime")
+getSecondPageId(Url + "?sort_by=-imdb_score&genre=animation", 0, 2, "anime")
 
-/*async function createButtonLeftRight(id) {
-    const create_btn_l = document.createElement('img')
-    const create_btn_r = document.createElement('img')
-    create_btn_l.id = "l_" + id 
-    create_btn_r.id = "r_" + id 
-    create_btn_l.src = "btn.jpg"
-    create_btn_r.src = "btn.jpg"
-    document.getElementById("category_" + id).appendChild(create_btn_l)
-    document.getElementById("category_" + id).appendChild(create_btn_r)
-}
-*/
