@@ -160,6 +160,7 @@
 .category_template__img {
   border-style: groove;
   border-color: #E0E1DD;
+  border-radius: 1rem;
 }
 .category_template__display {
   background: rgb(25, 25, 25);
@@ -282,7 +283,7 @@
   color: #E0E1DD;
   border-color: #0D1B2A;
   font-weight: bold;
-  border-radius: 2px;
+  border-radius: 8px;
   box-shadow: 0px 10px 14px -7px rgb(40, 36, 36);
   cursor: pointer;
 }
@@ -297,7 +298,7 @@
   color: #fff;
   border-color: #1B263B;
   font-weight: bold;
-  border-radius: 2px;
+  border-radius: 8px;
   box-shadow: 0px 10px 14px -7px rgb(40, 36, 36);
   background-color: #1B263B;
   cursor: pointer;
@@ -312,7 +313,6 @@
   padding: 0;
   margin: 0;
   cursor: pointer;
-  background-color: #1B263B;
   animation: none;
 }
 .category_template__btn:hover {
