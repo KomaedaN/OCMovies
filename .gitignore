@@ -16,3 +16,4 @@ db.sqlite3
 .pytest*
 
 node_modules/
+Pipfile
