@@ -8,7 +8,7 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-top: 4rem;
-    color: $color-primary;
+    color: $color-ligth;
     border-color: $color-primary;
     font-weight:bold;
     border-radius: 2px;
@@ -31,8 +31,7 @@
     background-color: #1B263B;  
     cursor: pointer;
     &:hover{
-        animation: btn_play 200ms ease-in-out;
-        animation-fill-mode: forwards;
+        animation: btn_play 200ms ease-in-out forwards;
     }
 }
 

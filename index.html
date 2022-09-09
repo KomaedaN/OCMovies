@@ -18,22 +18,22 @@
     <header>
         <nav class="header">
             <h1 class="header__title">JustStreamIt</h1>
-            <h2 class="header__text_home">Accueil</h2>
-            <h2 class="header__text_color">Catégories</h2>
+            <h2 class="header__text_home header__text_hover">Accueil</h2>
+            <h2 class="header__text_hover">Catégories</h2>
         </nav>
     </header>
 
     <section id="best_film" class="best_film">
         <div class="best_film__container">
             <div class="best_film__information">
-                <h2 id="best_film__title" class="best_film__title"></h2>
+                <h2 id="best_film__title" class="best_film__title">a</h2>
                 <button class="best_film__btn">Play</button>
                 <h3 class="best_film__resume">Résumé:</h3>
                 <p id="best_film__description" class="best_film__description"></p>
             </div>
 
             <div>
-                <img src="" alt="film image" id="best_film__img" class="best_film__img">
+                <img src="./left.png" alt="film image" id="best_film__img" class="best_film__img">
             </div>
         </div>
     </section>
@@ -76,7 +76,7 @@
         </div>
 
         <div class="all_category__film">
-            <h2>Films d'aventures</h2>
+            <h2>Films d'aventure</h2>
             <div id="carousel_adventure" class="carousel">
                 <div class="carousel__container">
                     <div id="category_adventure" class="category_list"></div>
@@ -112,17 +112,17 @@
         </div>
     </section>
 
-    <section id="display_film_data"></section>
+    <div id="display_film_data"></div>
 
     <template id="category_template">
         <button id="btn_display" onclick="displayInforamtion(this.id)" class="category_template__btn">
-            <img src="" alt="top rated film image" id="category_template__img" class="category_template__img" >
+            <img alt="top rated film image" id="category_template__img" class="category_template__img" >
         </button>
     </template>
 
     <template id="all_data">
         <div id="category_template__display" class="category_template__display">
-            <img src="" alt="film image" id="category_template__img_div" class="category_template__img_div">
+            <img alt="film image" id="category_template__img_div" class="category_template__img_div">
             <div class="category_template__information">
                 <div class="category_template__grid_title">
                     <h2 id="category_template__title" class="category_template__title"></h2>

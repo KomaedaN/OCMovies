@@ -10,9 +10,9 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background: linear-gradient(0deg, $color-primary 17%, $color-tertiaire 50%, $color-secondary 94%);
+    background: linear-gradient(0deg, $color-primary 33%, $color-secondary 94%);
     line-height: 100%;
-    animation: loader 2.5s ease-in-out 2s forwards;
+    animation: loader 2.5s ease-in-out 2.5s forwards;
     pointer-events: none;
         &__text{
             font-size: 4rem;
@@ -21,7 +21,7 @@
             display: flex;
             justify-content: center;
             margin-top: 25rem;
-            color: black;
+            color: $color-ligth;
         }
   }
 
@@ -42,6 +42,9 @@
     justify-items: center;
     &__text_home{
         justify-self: end;
+    }
+    &__text_hover{
+        cursor: pointer;
     }
 }
 
