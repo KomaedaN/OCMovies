@@ -2,11 +2,11 @@ const Url = "http://localhost:8000/api/v1/titles/";
 
 // get and display data from top rated film
 function getMostRatedFilmData() {
-    //get front element by id
+    //get front elements by id
     const img = document.getElementById('best_film__img');
     const title = document.getElementById('best_film__title');
     const description = document.getElementById('best_film__description');
-    //get data from the best imdb_score film
+    //get data from the best imdb_score film and insert them
     fetch(Url + "?sort_by=-imdb_score")
         .then(res => res.json())
         .then(data => {
@@ -31,6 +31,7 @@ function getSecondPageId(category_url, page, second_number, id) {
         })
 }
 
+//
 async function getFilmsFromCategory(category_url, first_number, seconde_number, id) {
     fetch(category_url)
         .then(res => res.json())
@@ -40,26 +41,25 @@ async function getFilmsFromCategory(category_url, first_number, seconde_number, 
                 const current_film_id = data["results"][i]["id"];
                 const current_film_data = await getDataFromFilmId(current_film_id);//get all data from id 
                             
-                //assign data
                 let image_data = current_film_data[0];
-
+                //create  carousel div
                 let information_div = document.createElement('div');
                 information_div.id = "film_" + current_film_id;
                 information_div.classList.add("carousel__card");
                 document.getElementById("category_" + id).appendChild(information_div);
-        
+                //Create a copy of the template and add the information to insert it in the document (index.html)
                 let category_id = document.getElementById("category_template");
                 let template = document.importNode(category_id.content, true);
                 let img = template.getElementById("category_template__img");
                 img.src = image_data    
                 document.getElementById("film_" + current_film_id).appendChild(template);
 
+                //add all missing data from this film 
                 insertFilmData(current_film_data, current_film_id);
-                
                 }
     })
 }
-
+//get all data from one film
 async function getDataFromFilmId(id) {
     return await fetch(Url + id)
         .then(res => res.json())
@@ -111,7 +111,6 @@ async function insertFilmData(current_film_data, current_film_id) {
     let reviews_from_critics = document.getElementById("display_" + current_film_id).querySelector("#category_template__reviews_from_critics");
     let description = document.getElementById("display_" + current_film_id).querySelector("#category_template__description");
 
-    
     //assign all information 
     image.src = current_film_data[0]
     title.textContent = current_film_data[1];
